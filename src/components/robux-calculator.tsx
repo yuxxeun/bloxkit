@@ -32,11 +32,12 @@ export function RobuxCalculator() {
       <div className="w-full max-w-2xl">
         {/* Header */}
         <div className="mb-12 text-center sm:mb-16">
-          <h1 className="mb-4 font-heading text-4xl leading-tight font-light text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-8 mb-2 font-heading text-4xl leading-tight font-bold text-foreground sm:text-5xl lg:text-5xl">
             Robux Tax Calculator
           </h1>
-          <p className="text-base text-muted-foreground sm:text-lg">
-            Calculate Robux before and after tax with precision
+          <p className="text-sm text-muted-foreground sm:text-lg">
+            Instantly calculate how much Robux you'll receive or need after
+            Roblox's 30% marketplace fee.
           </p>
         </div>
 
@@ -55,7 +56,7 @@ export function RobuxCalculator() {
                   : "bg-transparent text-muted-foreground hover:text-foreground"
               }`}
             >
-              Before Tax
+              Before Tax (Gross)
             </button>
             <button
               onClick={() => {
@@ -68,15 +69,12 @@ export function RobuxCalculator() {
                   : "bg-transparent text-muted-foreground hover:text-foreground"
               }`}
             >
-              After Tax
+              After Tax (Net)
             </button>
           </div>
 
           {/* Input Section */}
           <div className="mb-10">
-            <label className="mb-3 block text-sm font-medium text-foreground">
-              {mode === "before" ? "Robux Before Tax" : "Robux After Tax"}
-            </label>
             <div className="relative">
               <div className="absolute top-1/2 left-4 -translate-y-1/2 font-medium text-muted-foreground">
                 ⏣
@@ -92,7 +90,7 @@ export function RobuxCalculator() {
                   }
                 }}
                 placeholder="Enter amount"
-                className="w-full rounded-lg border border-border bg-white py-4 pr-4 pl-12 text-base font-medium text-gray-900 placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-primary focus:outline-none sm:py-5 sm:text-lg"
+                className="w-full rounded-lg border border-border bg-background py-4 pr-4 pl-12 text-base font-medium text-foreground placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-primary focus:outline-none sm:py-5 sm:text-lg"
               />
             </div>
           </div>
@@ -100,7 +98,7 @@ export function RobuxCalculator() {
           {/* Result Section */}
           <div className="rounded-lg bg-muted p-8 sm:p-10">
             <p className="mb-3 text-sm font-medium tracking-wide text-muted-foreground uppercase">
-              You would get
+              You will receive
             </p>
             <div className="flex items-baseline gap-3">
               <span className="font-heading text-3xl font-light text-foreground sm:text-4xl lg:text-5xl">
@@ -109,8 +107,8 @@ export function RobuxCalculator() {
             </div>
             <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
               {mode === "before"
-                ? `This is ${formattedInput} × ${(1 - TAX_RATE).toFixed(1)} (after 30% tax)`
-                : `This is ${formattedInput} ÷ ${(1 - TAX_RATE).toFixed(1)} (before 30% tax)`}
+                ? `This is ${formattedInput} × ${(1 - TAX_RATE).toFixed(1)} (After Roblox's 30% marketplace fee.)`
+                : `This is ${formattedInput} ÷ ${(1 - TAX_RATE).toFixed(1)} (Before Roblox's 30% marketplace fee.)`}
             </p>
           </div>
 
