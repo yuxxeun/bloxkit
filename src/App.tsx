@@ -1,4 +1,4 @@
-import { RobuxCalculator } from "./components/robux-calculator"
+import RobuxCalculator from "./components/robux-calculator"
 
 export function App() {
   return <RobuxCalculator />
